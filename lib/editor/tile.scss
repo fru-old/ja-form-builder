@@ -1,0 +1,38 @@
+.component-tile {
+  margin: 30px;
+
+  > h3 {
+    font-size: 12px;
+    padding: 4px;
+    font-weight: normal;
+    display: inline;
+    float: right;
+    margin: 0;
+    border-top: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    border-top-right-radius: 6px;
+    background-color: #fbfbfa;
+  }
+
+  > span {
+    overflow:hidden;
+    width: auto;
+    font-size: 12px;
+    display: block;
+    border-bottom: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    > span {
+      background-color: #dce1e7;
+      padding: 4px 10px;
+      display: block;
+    }
+  }
+
+  .content {
+    border: 1px solid #b7b7b7;
+    border-top: none;
+    background-color: #fbfbfa;
+  }
+}
