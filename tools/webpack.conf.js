@@ -52,11 +52,11 @@ function options(babelPlugins, webpackPlugins, postLoaders, reloadEntries, langu
           loaders: ['json']
         }, {
           test: /\.jsx?$/,
-          loaders: ['es3ify']
-        }, {
-          test: /\.jsx?$/,
           loaders: ['babel?' + JSON.stringify(babel)],
           include: [path.join(__dirname, '../lib'), path.join(__dirname, '../test')]
+        }, {
+          test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "file-loader"
         }],
         postLoaders: postLoaders
       },
