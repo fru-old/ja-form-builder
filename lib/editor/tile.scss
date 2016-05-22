@@ -18,12 +18,12 @@
     box-sizing: border-box;
     margin-left: $margin;
     margin-right: $margin;
-    border-bottom: $margin solid $background;
+    border-bottom: $margin solid transparent;
     &.highlight-2 {
       border-bottom-color: $color-highlight;
     }
     &:first-child {
-      border-top: $margin solid $background;
+      border-top: $margin solid transparent;
       &.highlight-0 {
         border-top-color: $color-highlight;
       }
@@ -42,13 +42,13 @@
     }
   }
   .cell:first-child .content {
-    border-left: $margin solid $background;
+    border-left: $margin solid transparent;
     &.highlight-3 {
       border-left-color: $color-highlight;
     }
   }
   .content {
-    border-right: $margin solid $background;
+    border-right: $margin solid transparent;
     &.highlight-1 {
       border-right-color: $color-highlight;
     }
