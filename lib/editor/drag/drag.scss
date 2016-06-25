@@ -19,16 +19,20 @@
     box-sizing: border-box;
     margin-left: $margin;
     margin-right: $margin;
-    border-bottom: $margin solid transparent;
-    &.highlight-2 {
+
+    & .outer-content {
+      border-bottom: $margin solid transparent;
+    }
+    &:first-child .outer-content {
+      border-top: $margin solid transparent;
+    }
+    &.highlight-2 .outer-content {
       border-bottom-color: $color-highlight;
     }
-    &:first-child {
-      border-top: $margin solid transparent;
-      &.highlight-0 {
-        border-top-color: $color-highlight;
-      }
+    &.highlight-0 .outer-content {
+      border-top-color: $color-highlight;
     }
+
     > div {
       margin-left: -$margin;
       margin-right: -$margin;
