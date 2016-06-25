@@ -9,6 +9,7 @@
   $background: #dcdcdc;
   $color-description: #888888;
   $color-highlight: lighten(#079dc3, 6);
+  $color-selection: lighten(#079dc3, 50);
   $color-highlight-shadow: darken(desaturate($color-highlight, 40), 10);
   $color-highlight-action: lighten(desaturate($color-highlight, 30), 15);
   $margin: 6px;
@@ -59,7 +60,10 @@
                   0 1px 5px 0 rgba($color-highlight-shadow,.12);
       padding: 9px 8px;
       border-radius: 4px;
-      background: white;
+      background-color: white;
+      &.active {
+        background-color: $color-selection;
+      }
     }
     .handler {
       color: $color-highlight;
@@ -80,7 +84,6 @@
       display: block;
       position: relative;
       bottom: 1px;
-      //font-weight: bold;
     }
   }
 }
