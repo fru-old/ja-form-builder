@@ -1,0 +1,12 @@
+#ja-fb-drag-preview {
+  max-width: 420px;
+
+  .row {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    .cell {
+      display: table-cell;
+    }
+  }
+}
