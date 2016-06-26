@@ -16,35 +16,31 @@
 
   background-color: $background;
   .row-wrapper {
-    box-sizing: border-box;
-    margin-left: $margin;
-    margin-right: $margin;
+    //box-sizing: border-box;
+    //margin-left: $margin;
+    //margin-right: $margin;
 
-    & .outer-content {
+    & .cell {
       border-bottom: $margin solid transparent;
     }
-    &:first-child .outer-content {
+    &:first-child .cell {
       border-top: $margin solid transparent;
     }
-    &.highlight-2 .outer-content {
+    &.highlight-2 .cell {
       border-bottom-color: $color-highlight;
     }
-    &.highlight-0 .outer-content {
+    &.highlight-0 .cell {
       border-top-color: $color-highlight;
     }
 
-    > div {
-      margin-left: -$margin;
-      margin-right: -$margin;
-    }
-    .row {
+    //.row {
       display: table;
       table-layout: fixed;
       width: 100%;
       .cell {
         display: table-cell;
       }
-    }
+    //}
   }
   .cell:first-child .content {
     border-left: $margin solid transparent;
