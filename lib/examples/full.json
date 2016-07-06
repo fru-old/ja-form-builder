@@ -1,0 +1,56 @@
+[{
+  "page": "Inital page",
+  "de-page": "Erste Seite", // Sprachpreferenz kann dem Formular als Parameter mitgegeben werden. Alternativ kann eine Übersetzungsfunktion als Parameter angegeben werden.
+  "path": "",
+  "elements": [{
+    "type": "io.github.fru.input",
+    "path": "first"
+  }, {
+    "type": "io.github.fru.input",
+    "path": "second",
+    "$conditional": "first",
+    "default": "?",
+    "placeholder": "Placeholder"
+  }, {
+    "type": "io.github.fru.button",
+    "label": "Simple label",
+    "$label": "second",
+    "conditional": true,
+    "keydown-action": "alert",
+    "keydown-subject": "Keydown",
+    "action": "alert",
+    "subject": "Easily editable",
+    "$action": "alert('Test Message')",
+    "$$action": "(function(){alert('Unsave');})()"
+  }, {
+    "type": "io.github.fru.section",
+    "path": "values",
+    "title": "Section Title",
+    "elements": [
+      [{
+        "type": "io.github.fru.input",
+        "path": "",
+        "conditional": "first"
+      }, {
+        "type": "io.github.fru.button",
+        "action": "removeItem",
+        "subject": "values",
+        "$index": "$index", // Is default, not because of same name. Access parent context with $parent
+        "$index": "values.$index"
+      }]
+    ]
+  }, {
+    "type": "io.github.fru.button",
+    "label": "Add Second",
+    "action": "addItem",
+    "subject": "values",
+    "$default": "second",
+    "clearDefault": true
+  }, {
+    "type": "io.github.fru.button",
+    "label": "Add Last",
+    "action": "addItem",
+    "subject": "values",
+    "$default": "values[values.length - 1]"
+  }]
+}]
