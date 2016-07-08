@@ -1,0 +1,48 @@
+{
+  "title": "Inital page",
+  "de-title": "Erste Seite",
+  "path": "",
+  "layout": "io.github.fru.simple",
+  "page": [{
+    "type": "io.github.fru.input",
+    "path": "first",
+    "default": ""
+  }, {
+    "type": "io.github.fru.input",
+    "path": "second",
+    "$default": "first",
+    "placeholder": "Placeholder"
+  }, {
+    "type": "io.github.fru.button",
+    "label": "Simple label",
+    "$label": "second",
+    "keydown-action": "alert",
+    "keydown-subject": "Keydown",
+    "action": "alert",
+    "subject": "Easily editable",
+    "//$action": "alert('Test Message')",
+    "//$$action": "(function(){alert('Unsave');})()"
+  }, {
+    "path": "values",
+    "label": "Section Title",
+    "section": [{
+      "row": [{
+        "type": "io.github.fru.input",
+        "path": ""
+      }, {
+        "type": "io.github.fru.button"
+      }]
+    }]
+  }, {
+    "row": [{
+      "type": "io.github.fru.input",
+      "path": ""
+    }, {
+      "type": "io.github.fru.button",
+      "label": "Add"
+    }]
+  }, {
+    "type": "io.github.fru.button",
+    "label": "Add Last"
+  }]
+}
