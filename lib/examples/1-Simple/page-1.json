@@ -1,9 +1,12 @@
+
+
+
 {
   "title": "Inital page",
   "de-title": "Erste Seite",
-  "path": "",
-  "layout": "io.github.fru.simple",
-  "page": [{
+  "path": "sub",
+  "type": "io.github.fru.page",
+  "elements": [{
     "type": "io.github.fru.input",
     "path": "first",
     "default": ""
@@ -14,3 +17,10 @@
     "placeholder": "Placeholder"
   }]
 }
+
+=> Initial construction of state tree
+=> Parsing register expressions and parse and watch paths
+=> Simple interface for pages and renaming page input, section
+=> Render and provide on set methods
+=> Update properties when expressions change
+=> files anlegen
