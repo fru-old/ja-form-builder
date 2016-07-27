@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for form\parser.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">form\parser.js</span></h1>
+    <h2>
+        Statements: <span class="metric">40.82% <small>(20 / 49)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">28.13% <small>(9 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">50% <small>(1 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">47.5% <small>(19 / 40)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">form/</a> &#187; parser.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+&nbsp;
+exports['default'] = function (path) {
+&nbsp;
+  var START = 0;
+  var AFTER_POINT = 1;
+  var AFTER_EXPRESSION = 2;
+  var AFTER_IDENTIFIER = 3;
+&nbsp;
+  var result = [],
+      current,
+      state = START;
+&nbsp;
+  for (var i = 0; i &lt; path.length; i++) {
+    var c = path.charAt(i);
+&nbsp;
+    if (c === '.') {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (state === START || state === AFTER_POINT) <span class="cstat-no" title="statement not covered" >throw 'Unexpected symbol "." at ' + i;</span>
+      state = AFTER_POINT;
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (c === '[') {
+<span class="cstat-no" title="statement not covered" >      if (state === AFTER_POINT) <span class="cstat-no" title="statement not covered" >throw 'Unexpected symbol "[" at ' + i;</span></span>
+<span class="cstat-no" title="statement not covered" >      state = AFTER_EXPRESSION;</span>
+<span class="cstat-no" title="statement not covered" >      i++;</span>
+<span class="cstat-no" title="statement not covered" >      var exp = compileSubExpression(path.substr(i));</span>
+<span class="cstat-no" title="statement not covered" >      i += exp.index;</span>
+<span class="cstat-no" title="statement not covered" >      result.push({ expression: exp.expression });</span>
+    } else {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (state === AFTER_EXPRESSION) <span class="cstat-no" title="statement not covered" >throw 'Unexpected symbol ' + c + ' at ' + i;</span>
+      if (state !== AFTER_IDENTIFIER) result.push(current = { identifier: '' });
+      state = AFTER_IDENTIFIER;
+      current.identifier += c;
+    }
+  }
+  return result;
+};
+&nbsp;
+<span class="fstat-no" title="function not covered" >function compileSubExpression(path) {</span>
+<span class="cstat-no" title="statement not covered" >  var expectClosingQuote = '';</span>
+<span class="cstat-no" title="statement not covered" >  var expectQuotedChar = false;</span>
+<span class="cstat-no" title="statement not covered" >  var expectClosingSquareBracketCount = 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; path.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >    var c = path.charAt(i);</span>
+<span class="cstat-no" title="statement not covered" >    if (expectClosingQuote) {</span>
+<span class="cstat-no" title="statement not covered" >      if (c === '\\') <span class="cstat-no" title="statement not covered" >expectQuotedChar = true;e</span>lse {</span>
+<span class="cstat-no" title="statement not covered" >        if (!expectQuotedChar &amp;&amp; c === expectClosingQuote) <span class="cstat-no" title="statement not covered" >expectClosingQuote = '';</span></span>
+<span class="cstat-no" title="statement not covered" >        expectQuotedChar = false;</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      if (c === '\'' || c === '\"') <span class="cstat-no" title="statement not covered" >expectClosingQuote = c;</span></span>
+<span class="cstat-no" title="statement not covered" >      if (c === '[') <span class="cstat-no" title="statement not covered" >expectClosingSquareBracketCount++;</span></span>
+<span class="cstat-no" title="statement not covered" >      if (c === ']') <span class="cstat-no" title="statement not covered" >expectClosingSquareBracketCount--;</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!expectClosingSquareBracketCount) {</span>
+<span class="cstat-no" title="statement not covered" >        return { index: i, expression: path.substr(0, i) };</span>
+      }
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  throw 'Unexpected end of expression: ' + path;</span>
+}
+&nbsp;
+;
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 27 2016 19:26:40 GMT+0200 (W. Europe Summer Time)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
