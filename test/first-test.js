@@ -4,24 +4,53 @@ import parse from '../lib/form/parser.js';
 describe("Parser", function () {
 
   it("Should parse simple identifiers", function () {
-    expect(parse('test')).to.deep.equal([
-      { identifier: 'test'}
+    expect(parse('test.test.test')).to.deep.equal([
+      { identifier: ['test', 'test', 'test'], root: '$data' }
     ]);
   });
 
-  it("Should parse joined identifiers", function () {
-    expect(parse('test.test')).to.deep.equal([
+  it("Should parse $ context variables", function () {
+    expect(parse('$root.test.test')).to.deep.equal([
+      { identifier: ['test', 'test'], root: '$root' }
+    ]);
+    expect(parse('$parent.test.test')).to.deep.equal([
+      { identifier: ['test', 'test'], root: '$parents', index: 0 }
+    ]);
+    expect(parse('$parents[3].test.test')).to.deep.equal([
+      { identifier: ['test', 'test'], root: '$parents', index: 3 }
+    ]);
+  });
+
+  it("Should recognize function calls and constants", function () {
+    expect(parse('test.test(test.test, "test", 123, true)')).to.deep.equal([
+      { call: ['test', 'test'], args: [
+        { identifier: ['test', 'test'], root: '$data' },
+        { constant: '"test"' },
+        { constant: '123' },
+        { constant: 'true' }
+      ]}
+    ]);
+  });
+
+  it("Should preserve spacing between operators", function () {
+    expect(parse('+ !!true')).to.deep.equal([
+      { operator: '+'},
+      { space: true },
+      { operator: '!'},
+      { operator: '!'},
+      { constant: true }
+    ]);
+  });
+
+  it("Should parse sub expressions", function () {
+    expect(parse('test[test.test()]')).to.deep.equal([
       { identifier: 'test'},
-      { identifier: 'test'}
+      { expression: [
+        { call: ['test', 'test'], args: [] }
+      ]}
     ]);
   });
-
-  it("Should allow white space in identifiers", function () {
-    expect(parse('test test')).to.deep.equal([
-      { identifier: 'test test'}
-    ]);
-  });
-
+  
 	/*var result = require('inject!../lib/tested.js')({
 		'./App.js': {}
 	});*/
