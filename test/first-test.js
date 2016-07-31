@@ -13,6 +13,7 @@ describe("Parser", function () {
     expect(parse('$root.test.test')).to.deep.equal([
       { identifier: ['test', 'test'], root: '$root' }
     ]);
+
     expect(parse('$parent.test.test')).to.deep.equal([
       { identifier: ['test', 'test'], root: '$parents', index: 0 }
     ]);
@@ -32,20 +33,20 @@ describe("Parser", function () {
     ]);
   });
 
+
   it("Should parse sub expressions", function () {
+
+    console.log(JSON.stringify(parse('test[test.test]'), null, 4));
 
     var subExpression = [
       { identifier: ['test', 'test'], root: '$data' }
     ];
     expect(parse('test.test')).to.deep.equal(subExpression);
-    console.log(JSON.stringify(parse('test.test.test()()'), null, 4));
-
-    /*expect(parse('test[test.test]')).to.deep.equal([
-      { identifier: [
-        'test',
-        [{ expression: subExpression }]
-      ]}
-    ]);*/
+    
+    expect(parse('test[test.test]')).to.deep.equal([
+      { identifier: ['test'], root: '$data' },
+      { expression: subExpression }
+    ]);
   });
 
   /*
