@@ -38,7 +38,7 @@ describe("Parser", function () {
       { identifier: ['test', 'test'], root: '$data' }
     ];
     expect(parse('test.test')).to.deep.equal(subExpression);
-    console.log(JSON.stringify(parse('test[test.test](test())'), null, 4));
+    console.log(JSON.stringify(parse('test.test.test()()'), null, 4));
 
     /*expect(parse('test[test.test]')).to.deep.equal([
       { identifier: [
